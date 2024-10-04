@@ -1,0 +1,36 @@
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+
+  > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+
+    > div {
+      > span {
+        margin-left: 6px;
+      }
+    }
+
+    > button.delete-btn {
+      padding: 3px 9px;
+      border: 1px solid #e0e0e0;
+      background-color: #e43a3a;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 24px;
+      -webkit-border-radius: 24px;
+      -moz-border-radius: 24px;
+      -ms-border-radius: 24px;
+      -o-border-radius: 24px;
+    }
+  }
+}
