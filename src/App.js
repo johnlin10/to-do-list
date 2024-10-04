@@ -26,6 +26,15 @@ function App() {
     <div className="App">
       <AddTodo addTodo={addTodo} />
       <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
+      <span className="footer">
+        <a
+          href="https://github.com/johnlin10/to-do-list"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Github
+        </a>
+      </span>
     </div>
   )
 }
