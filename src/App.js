@@ -1,3 +1,10 @@
+/**
+ * Todo App
+ * @author John Lin
+ * @version 1.0.0
+ * @description A simple todo list app built with React and SCSS.
+ */
+
 import { useState, useEffect } from 'react'
 import './App.css'
 import TodoList from './components/TodoList/TodoList'
@@ -5,10 +12,12 @@ import AddTodo from './components/TodoList/AddTodo'
 
 function App() {
   const [todos, setTodos] = useState(() => {
+    // Retrieve todos from local storage
     const savedTodos = localStorage.getItem('todos')
     return savedTodos ? JSON.parse(savedTodos) : []
   })
 
+  // Save todos to local storage
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])

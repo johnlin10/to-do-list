@@ -7,3 +7,4 @@ A simple todo list app built with React and SCSS.
 - Add new todos
 - Mark todos as completed
 - Delete todos
+- Save todos to local storage
