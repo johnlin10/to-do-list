@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import TodoList from './components/TodoList/TodoList'
 import AddTodo from './components/TodoList/AddTodo'
 
 function App() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos')
+    return savedTodos ? JSON.parse(savedTodos) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const addTodo = (text) => {
     setTodos([...todos, { id: Date.now(), text, completed: false }])
@@ -27,6 +34,7 @@ function App() {
       <AddTodo addTodo={addTodo} />
       <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
       <span className="footer">
+        John Lin - {` `}
         <a
           href="https://github.com/johnlin10/to-do-list"
           target="_blank"

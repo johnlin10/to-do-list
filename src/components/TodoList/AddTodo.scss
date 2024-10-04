@@ -2,9 +2,13 @@ form.add-todo {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  position: sticky;
+  top: 0;
+  padding: 10px 10px 0 10px;
   width: 100%;
   max-width: 400px;
+  background: #fff;
+  box-shadow: 0 12px 12px 6px #fff;
 
   > input {
     flex: 1;
