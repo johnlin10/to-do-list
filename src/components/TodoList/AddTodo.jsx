@@ -18,10 +18,16 @@ function AddTodo({ addTodo }) {
         <input
           type="text"
           placeholder="Add a new todo"
+          autoFocus
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button type="submit">+</button>
+        <button
+          type="submit"
+          className={`add-todo-hint ${text.trim() ? 'active' : ''}`}
+        >
+          <span class="material-symbols-outlined">add</span>
+        </button>
       </form>
       <p className={`add-todo-hint ${text.trim() ? '' : 'hidden'}`}>
         Enter to add
