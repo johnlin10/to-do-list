@@ -21,7 +21,7 @@ function AddTodo({ addTodo }) {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button type="submit">Add</button>
+        <button type="submit">+</button>
       </form>
       <p className={`add-todo-hint ${text.trim() ? '' : 'hidden'}`}>
         Enter to add
