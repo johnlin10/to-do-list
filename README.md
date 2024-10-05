@@ -2,6 +2,8 @@
 
 A simple todo list app built with React and SCSS.
 
+![Todo List](./assets/images/to-do-list-screenshot.png)
+
 ## Features
 
 - Add new todos

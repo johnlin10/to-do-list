@@ -1,5 +1,10 @@
 * {
   box-sizing: border-box;
+  transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -moz-transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -ms-transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 html {
@@ -16,6 +21,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
