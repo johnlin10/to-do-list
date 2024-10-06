@@ -1,6 +1,7 @@
 {
   "short_name": "To Do App",
   "name": "To Do App",
+  "description": "A simple to-do list",
   "icons": [
     {
       "src": "favicon.ico",
