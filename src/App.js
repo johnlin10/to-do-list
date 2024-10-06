@@ -8,7 +8,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import TodoList from './components/TodoList/TodoList'
-import AddTodo from './components/TodoList/AddTodo'
+import AddTodo from './components/AddTodo/AddTodo'
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -40,18 +40,23 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <h1>To Do</h1>
+      </header>
       <AddTodo addTodo={addTodo} />
       <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
-      <span className="footer">
-        John Lin - {` `}
-        <a
-          href="https://github.com/johnlin10/to-do-list"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Github
-        </a>
-      </span>
+      <div className="footer-container">
+        <span>@John Lin</span>
+        <span className="footer">
+          <a
+            href="https://github.com/johnlin10/to-do-list"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github
+          </a>
+        </span>
+      </div>
     </div>
   )
 }
