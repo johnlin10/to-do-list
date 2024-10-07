@@ -1,26 +1,43 @@
 {
-  "short_name": "To Do App",
-  "name": "To Do App",
+  "short_name": "TODO",
+  "name": "TODO",
   "description": "A simple to-do list",
+  "id": "johnlin.todo",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/to-do-list/assets/images/icons/r/TODO_R_1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "/to-do-list/assets/images/icons/r/TODO_R_256.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "256x256"
     },
     {
-      "src": "logo512.png",
+      "src": "/to-do-list/assets/images/icons/r/TODO_R_128.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "128x128"
+    },
+    {
+      "src": "/to-do-list/assets/images/icons/r/TODO_R_96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/to-do-list/assets/images/icons/r/TODO_R_72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/to-do-list/assets/images/icons/r/TODO_R_64.png",
+      "type": "image/png",
+      "sizes": "64x64"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "orientation": "portrait",
+  "theme_color": "#42b2db",
   "background_color": "#ffffff"
 }
