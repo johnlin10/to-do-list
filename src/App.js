@@ -41,7 +41,10 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>To Do</h1>
+        <h1>
+          TODO
+          <span class="material-symbols-outlined check-icon">check</span>
+        </h1>
       </header>
       <AddTodo addTodo={addTodo} />
       <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
