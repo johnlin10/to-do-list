@@ -17,6 +17,10 @@ function App() {
     return savedTodos ? JSON.parse(savedTodos) : []
   })
 
+  const refreshPage = () => {
+    window.location.reload(true)
+  }
+
   // Save todos to local storage
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
@@ -41,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>
+        <h1 onClick={refreshPage}>
           TODO
           <span class="material-symbols-outlined check-icon">check</span>
         </h1>
@@ -51,6 +55,7 @@ function App() {
       <div className="footer-container">
         <span>@John Lin</span>
         <span className="footer">
+          TODO v1.1.2{` `}
           <a
             href="https://github.com/johnlin10/to-do-list"
             target="_blank"
@@ -58,6 +63,7 @@ function App() {
           >
             Github
           </a>
+          {` `}
         </span>
       </div>
     </div>

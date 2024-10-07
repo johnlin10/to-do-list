@@ -7,6 +7,10 @@ function TodoItem({ todo, deleteTodo, toggleTodo }) {
     event.preventDefault()
 
     // 防止 touchstart 和 click 同時觸發
+    if (event.type === 'touchend') {
+      touchedRef.current = false
+      return
+    }
     if (event.type === 'touchstart') {
       touchedRef.current = true
     }
