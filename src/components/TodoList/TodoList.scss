@@ -32,9 +32,10 @@
       border-bottom: none;
     }
 
-    > div {
+    > div.todo-item-container {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       > input[type='checkbox'] {
         font-family: 'Material Symbols Outlined';
@@ -47,6 +48,7 @@
         outline: none;
         cursor: pointer;
         position: relative;
+        pointer-events: none;
 
         &:checked {
           background-color: #42b2db;
