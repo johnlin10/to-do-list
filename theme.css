@@ -1,0 +1,67 @@
+:root {
+  --primary-color: #42b2db;
+  --secondary-color: #e0e0e0;
+  --background-color: #fff;
+
+  /* Warning color */
+  --warning-color: #df7171;
+
+  /* Text color */
+  --text-color: #000;
+  --text-color-secondary: #222222;
+  --text-color-tertiary: #999;
+
+  /* 特定用途顏色 */
+  --input-focus-color: #9ed4e8;
+
+  /* 灰階 */
+  --gray-color-1: #111;
+  --gray-color-2: #222;
+  --gray-color-3: #333;
+  --gray-color-4: #444;
+  --gray-color-5: #555;
+  --gray-color-6: #666;
+  --gray-color-7: #777;
+  --gray-color-8: #888;
+  --gray-color-9: #999;
+  --gray-color-10: #aaa;
+  --gray-color-11: #bbb;
+  --gray-color-12: #ccc;
+  --gray-color-13: #ddd;
+  --gray-color-14: #eee;
+  --gray-color-15: #fff;
+}
+
+[data-theme='dark'] {
+  --primary-color: #42b2db;
+  --secondary-color: #222222;
+  --background-color: #131313;
+
+  /* Warning color */
+  --warning-color: #df7171;
+
+  /* Text color */
+  --text-color: #fff;
+  --text-color-secondary: #e0e0e0;
+  --text-color-tertiary: #626262;
+
+  /* 特定用途顏色 */
+  --input-focus-color: #2f4b54;
+
+  /* 反灰階 */
+  --gray-color-1: #eee;
+  --gray-color-2: #ddd;
+  --gray-color-3: #ccc;
+  --gray-color-4: #bbb;
+  --gray-color-5: #aaa;
+  --gray-color-6: #999;
+  --gray-color-7: #888;
+  --gray-color-8: #777;
+  --gray-color-9: #666;
+  --gray-color-10: #555;
+  --gray-color-11: #444;
+  --gray-color-12: #333;
+  --gray-color-13: #222;
+  --gray-color-14: #111;
+  --gray-color-15: #000;
+}
