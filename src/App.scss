@@ -7,6 +7,14 @@
   width: 100%;
   margin: 0;
   overflow-y: scroll;
+  -ms-overflow-style: none; /* IE 和 Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   > header {
     z-index: 100;
@@ -19,6 +27,7 @@
     max-width: 540px;
     background: var(--background-color);
     padding: 80px 12px 12px 12px;
+    scroll-snap-align: start;
 
     > div {
       display: flex;

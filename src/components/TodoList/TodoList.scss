@@ -6,6 +6,7 @@
   width: 100%;
   max-width: 540px;
   padding: 10px 10px 88px 10px;
+  scroll-snap-align: start;
 
   > li {
     display: flex;
