@@ -12,8 +12,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    background: #fff;
+    border-bottom: 1px solid var(--secondary-color);
+    background: var(--background-color);
 
     &:hover {
       > button.delete-btn {
@@ -21,7 +21,7 @@
 
         &:hover {
           opacity: 1;
-          background-color: #df7171;
+          background-color: var(--warning-color);
           color: #fff;
           font-size: 16px;
         }
@@ -51,8 +51,8 @@
         pointer-events: none;
 
         &:checked {
-          background-color: #42b2db;
-          border-color: #42b2db;
+          background-color: var(--primary-color);
+          border-color: var(--primary-color);
 
           &::after {
             content: '\e5ca';
@@ -67,6 +67,7 @@
         }
       }
       > span {
+        color: var(--text-color);
         margin-left: 6px;
       }
     }
@@ -77,9 +78,9 @@
       justify-content: center;
       height: 20px;
       width: 20px;
-      border: 2px solid #df7171;
-      background-color: #fff;
-      color: #df7171;
+      border: 2px solid var(--warning-color);
+      background-color: var(--background-color);
+      color: var(--warning-color);
       font-size: 16px;
       cursor: pointer;
       opacity: 0;
