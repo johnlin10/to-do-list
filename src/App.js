@@ -9,8 +9,12 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import TodoList from './components/TodoList/TodoList'
 import AddTodo from './components/AddTodo/AddTodo'
+import Setting from './components/Setting/Setting'
 
 function App() {
+  // Setting
+  const [isSettingOpen, setIsSettingOpen] = useState(false)
+
   // Todos
   const [todos, setTodos] = useState(() => {
     // Retrieve todos from local storage
@@ -59,7 +63,11 @@ function App() {
   return (
     <div className="App">
       <header>
-        <div className="empty"></div>
+        <div className="setting">
+          <button onClick={() => setIsSettingOpen(true)}>
+            <span class="material-symbols-outlined">settings</span>
+          </button>
+        </div>
         <div className="logo">
           <h1 onClick={refreshPage}>
             TODO
@@ -77,7 +85,7 @@ function App() {
       <div className="footer-container">
         <span>@John Lin</span>
         <span className="footer">
-          TODO v1.3.1{` `}
+          TODO v1.4.0{` `}
           <a
             href="https://github.com/johnlin10/to-do-list"
             target="_blank"
@@ -88,6 +96,12 @@ function App() {
           {` `}
         </span>
       </div>
+      <Setting
+        isOpen={isSettingOpen}
+        onClose={() => setIsSettingOpen(false)}
+        todos={todos}
+        setTodos={setTodos}
+      />
     </div>
   )
 }
