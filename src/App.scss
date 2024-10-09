@@ -27,7 +27,7 @@
     max-width: 540px;
     background: var(--background-color);
     padding: 80px 12px 12px 12px;
-    scroll-snap-align: start;
+    scroll-snap-align: end;
 
     > div {
       display: flex;

@@ -6,7 +6,7 @@
   width: 100%;
   max-width: 540px;
   background: var(--background-color);
-  box-shadow: 0 12px 12px 6px var(--background-color);
+  box-shadow: 0 0 12px 6px var(--background-color);
   z-index: 110;
 
   > form.add-todo {

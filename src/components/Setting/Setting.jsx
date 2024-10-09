@@ -7,7 +7,10 @@ function Setting({ isOpen, onClose, todos, setTodos }) {
     const dataStr = JSON.stringify(todos)
     const dataUri =
       'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr)
-    const exportFileDefaultName = 'todo_list.json'
+    const date = new Date()
+    const exportFileDefaultName = `TODO_list_${date.getFullYear()}${
+      date.getMonth() + 1
+    }${date.getDate()}${date.getHours()}${date.getMinutes()}.json`
 
     const a = document.createElement('a')
     a.href = dataUri
