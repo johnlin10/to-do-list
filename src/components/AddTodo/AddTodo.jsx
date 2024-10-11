@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './AddTodo.scss'
 
 function AddTodo({ addTodo }) {
-  const [text, setText] = useState('ABCDEF')
+  const [text, setText] = useState('')
   const [dueDate, setDueDate] = useState('')
   const [importance, setImportance] = useState('normal') // other:
 

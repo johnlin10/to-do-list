@@ -1,20 +1,39 @@
 .todo-list {
   z-index: 90;
+  position: relative;
   list-style: none;
   padding: 0;
   margin: 0;
   width: 100%;
   max-width: 540px;
-  padding: 10px 0 88px 0;
+  padding: 28px 0 88px 0;
   scroll-snap-align: start;
 
   @media (min-width: 540px) {
-    padding: 10px 10px 88px 10px;
+    padding: 28px 10px 88px 10px;
+  }
+
+  > p.todo-delete-tip {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 12px;
+    margin: 0;
+    margin-top: -20px;
+    font-size: 0.8rem;
+    color: var(--gray-color-10);
+
+    > span {
+      margin-right: 2px;
+      font-size: 1rem;
+    }
   }
 
   > li {
     display: flex;
     align-items: center;
+    position: relative;
     width: 100%;
     height: 48px;
     padding: 0;
@@ -47,6 +66,10 @@
 
       > div.todo-option {
         scroll-snap-align: start;
+      }
+
+      > p.todo-delete-tip {
+        opacity: 1;
       }
     }
 
