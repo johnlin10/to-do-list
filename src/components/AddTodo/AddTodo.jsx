@@ -3,12 +3,14 @@ import './AddTodo.scss'
 
 function AddTodo({ addTodo }) {
   const [text, setText] = useState('')
+  const [dueDate, setDueDate] = useState('')
+  const [importance, setImportance] = useState('normal') // other:
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!text.trim()) return
 
-    addTodo(text)
+    addTodo(text, dueDate, importance)
     setText('')
   }
 
@@ -29,6 +31,25 @@ function AddTodo({ addTodo }) {
           <span class="material-symbols-outlined">add</span>
         </button>
       </form>
+      {text.trim() && (
+        <div className="todo-details">
+          <input
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
+          <select
+            name="importance"
+            id="importance"
+            value={importance}
+            onChange={(e) => setImportance(e.target.value)}
+          >
+            <option value="normal">Normal</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      )}
       <p className={`add-todo-hint ${text.trim() ? '' : 'hidden'}`}>
         Enter to add
       </p>

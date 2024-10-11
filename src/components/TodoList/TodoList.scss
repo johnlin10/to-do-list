@@ -18,7 +18,7 @@
     width: 100%;
     height: 48px;
     padding: 0;
-    padding-left: 9px;
+    padding-left: 18px;
     border-bottom: 1px solid var(--secondary-color);
     background: var(--background-color);
     overflow-x: scroll;
@@ -55,7 +55,10 @@
     }
 
     > div.todo-item-container-wrapper {
+      display: flex;
+      align-items: center;
       position: relative;
+      height: 100%;
       min-width: 100%;
       scroll-snap-align: end;
 
@@ -63,6 +66,7 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        height: 100%;
         width: 100%;
 
         > input[type='checkbox'] {
@@ -71,12 +75,19 @@
           -webkit-appearance: none;
           width: 20px;
           height: 20px;
-          border: 2px solid #ccc;
+          border: 3px solid var(--gray-color-12);
           border-radius: 50%;
           outline: none;
           cursor: pointer;
           position: relative;
           pointer-events: none;
+
+          &.importance-medium {
+            border-color: var(--warning-color-orange);
+          }
+          &.importance-high {
+            border-color: var(--warning-color);
+          }
 
           &:checked {
             background-color: var(--primary-color);
@@ -94,9 +105,24 @@
             }
           }
         }
-        > span {
-          color: var(--text-color);
+
+        > div.todo-container {
           margin-left: 6px;
+
+          > span {
+            font-size: 1rem;
+            color: var(--text-color);
+          }
+
+          > div.todo-details-view {
+            margin-top: -3px;
+            height: fit-content;
+
+            > span {
+              font-size: 0.8rem;
+              color: var(--gray-color-10);
+            }
+          }
         }
       }
     }

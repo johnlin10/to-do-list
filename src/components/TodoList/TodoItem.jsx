@@ -9,14 +9,30 @@ function TodoItem({ todo, deleteTodo, toggleTodo }) {
       <li>
         <div className="todo-item-container-wrapper">
           <div className="todo-item-container" onClick={handleToggle}>
-            <input type="checkbox" checked={todo.completed} readOnly />
-            <span
-              style={{
-                textDecoration: todo.completed ? 'line-through' : 'none',
-              }}
-            >
-              {todo.text}
-            </span>
+            <input
+              type="checkbox"
+              className={`${
+                todo.importance === 'medium'
+                  ? 'importance-medium'
+                  : todo.importance === 'high'
+                  ? 'importance-high'
+                  : ''
+              }`}
+              checked={todo.completed}
+              readOnly
+            />
+            <div className="todo-container">
+              <span
+                style={{
+                  textDecoration: todo.completed ? 'line-through' : 'none',
+                }}
+              >
+                {todo.text}
+              </span>
+              <div className="todo-details-view">
+                <span className="due-date">{todo.dueDate}</span>
+              </div>
+            </div>
           </div>
         </div>
 

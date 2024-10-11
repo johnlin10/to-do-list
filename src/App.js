@@ -1,7 +1,7 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.3.0
+ * @version 1.5.0
  * @description A simple todo list app built with React and SCSS.
  */
 
@@ -21,6 +21,24 @@ function App() {
     const savedTodos = localStorage.getItem('todos')
     return savedTodos ? JSON.parse(savedTodos) : []
   })
+  const addTodo = (text, dueDate, importance) => {
+    setTodos([
+      ...todos,
+      { id: Date.now(), text, dueDate, importance, completed: false },
+    ])
+  }
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id))
+  }
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    )
+  }
 
   // Theme
   const [theme, setTheme] = useState(() => {
@@ -43,22 +61,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
-
-  const addTodo = (text) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false }])
-  }
-
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id))
-  }
-
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    )
-  }
 
   return (
     <div className="App">
@@ -85,7 +87,7 @@ function App() {
       <div className="footer-container">
         <span>@John Lin</span>
         <span className="footer">
-          TODO v1.4.2{` `}
+          TODO v1.5.0{` `}
           <a
             href="https://github.com/johnlin10/to-do-list"
             target="_blank"
