@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './AddTodo.scss'
 
 function AddTodo({ addTodo }) {
-  const [text, setText] = useState('')
+  const [text, setText] = useState('ABCDEF')
   const [dueDate, setDueDate] = useState('')
   const [importance, setImportance] = useState('normal') // other:
 
@@ -41,6 +41,13 @@ function AddTodo({ addTodo }) {
           <select
             name="importance"
             id="importance"
+            className={`${
+              importance === 'medium'
+                ? 'medium'
+                : importance === 'high'
+                ? 'high'
+                : ''
+            }`}
             value={importance}
             onChange={(e) => setImportance(e.target.value)}
           >

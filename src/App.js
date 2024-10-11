@@ -1,7 +1,7 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.0
+ * @version 1.5.1
  * @description A simple todo list app built with React and SCSS.
  */
 
@@ -87,7 +87,7 @@ function App() {
       <div className="footer-container">
         <span>@John Lin</span>
         <span className="footer">
-          TODO v1.5.0{` `}
+          TODO v1.5.1{` `}
           <a
             href="https://github.com/johnlin10/to-do-list"
             target="_blank"

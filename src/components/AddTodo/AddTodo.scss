@@ -80,6 +80,53 @@
     }
   }
 
+  > .todo-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+
+    > input[type='date'],
+    select {
+      flex: 1;
+      padding: 6px 12px;
+      border: 2px solid var(--secondary-color);
+      border-radius: 20px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-size: 14px;
+      outline: none;
+
+      &:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(66, 178, 219, 0.1);
+      }
+
+      // importance
+      &.medium {
+        border-color: var(--warning-color-orange);
+      }
+      &.high {
+        border-color: var(--warning-color);
+      }
+    }
+
+    input[type='date'] {
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(0.5);
+        cursor: pointer;
+      }
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 30px;
+    }
+  }
+
   > p.add-todo-hint {
     margin: 6px 0 0 18px;
     font-size: 12px;
