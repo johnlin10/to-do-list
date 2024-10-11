@@ -3,7 +3,7 @@ import './AddTodo.scss'
 
 function AddTodo({ addTodo }) {
   const [text, setText] = useState('')
-  const [dueDate, setDueDate] = useState('')
+  const [dueDate, setDueDate] = useState(new Date().toISOString().split('T')[0])
   const [importance, setImportance] = useState('normal') // other:
 
   const handleSubmit = (e) => {
@@ -12,6 +12,8 @@ function AddTodo({ addTodo }) {
 
     addTodo(text, dueDate, importance)
     setText('')
+    setDueDate(new Date().toISOString().split('T')[0])
+    setImportance('normal')
   }
 
   return (
@@ -22,7 +24,13 @@ function AddTodo({ addTodo }) {
           placeholder="Add a new todo"
           autoFocus
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => {
+            setText(e.target.value)
+            if (!e.target.value) {
+              setDueDate(new Date().toISOString().split('T')[0])
+              setImportance('normal')
+            }
+          }}
         />
         <button
           type="submit"

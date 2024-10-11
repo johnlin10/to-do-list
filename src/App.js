@@ -87,7 +87,7 @@ function App() {
       <div className="footer-container">
         <span>@John Lin</span>
         <span className="footer">
-          TODO v1.5.1{` `}
+          TODO v1.5.2{` `}
           <a
             href="https://github.com/johnlin10/to-do-list"
             target="_blank"
