@@ -1,14 +1,12 @@
 function TodoItem({ todo, deleteTodo, toggleTodo }) {
-  // toggle todo
-  const handleToggle = () => {
-    toggleTodo(todo.id)
-  }
-
   return (
     <>
       <li>
         <div className="todo-item-container-wrapper">
-          <div className="todo-item-container" onClick={handleToggle}>
+          <div
+            className="todo-item-container"
+            onClick={() => toggleTodo(todo.id)}
+          >
             <input
               type="checkbox"
               className={`${

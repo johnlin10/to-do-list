@@ -38,7 +38,10 @@ function Setting({ isOpen, onClose, todos, setTodos }) {
   }
 
   const clearAllData = () => {
-    setTodos([])
+    if (window.confirm('All data will be cleared, are you sure?')) {
+      setTodos([])
+      localStorage.removeItem('todos')
+    }
   }
 
   return (
@@ -65,6 +68,7 @@ function Setting({ isOpen, onClose, todos, setTodos }) {
             accept=".json"
             className="setting-import"
             onChange={importTodoList}
+            placeholder="Import TODO JSON file"
           />
           <p className="setting-tip">Import and Load TODO JSON file</p>
           <button className="setting-clear" onClick={clearAllData}>

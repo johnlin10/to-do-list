@@ -2,7 +2,6 @@ import TodoItem from './TodoItem'
 import './TodoList.scss'
 
 function TodoList({ todos, deleteTodo, toggleTodo }) {
-  // 放棄最佳化滑動刪除的功能
   return (
     <ul className="todo-list">
       {todos.length > 0 && (

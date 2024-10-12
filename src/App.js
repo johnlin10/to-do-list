@@ -1,15 +1,19 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.1
- * @description A simple todo list app built with React and SCSS.
+ * @version 1.5.3
+ * @description A simple to-do list PWA built with React and SCSS.
  */
 
 import { useState, useEffect } from 'react'
 import './App.css'
+import Header from './components/Header/Header'
 import TodoList from './components/TodoList/TodoList'
 import AddTodo from './components/AddTodo/AddTodo'
 import Setting from './components/Setting/Setting'
+import Footer from './components/Footer/Footer'
+
+const version = '1.5.3'
 
 function App() {
   // Setting
@@ -17,10 +21,10 @@ function App() {
 
   // Todos
   const [todos, setTodos] = useState(() => {
-    // Retrieve todos from local storage
     const savedTodos = localStorage.getItem('todos')
     return savedTodos ? JSON.parse(savedTodos) : []
   })
+
   const addTodo = (text, dueDate, importance) => {
     setTodos([
       ...todos,
@@ -47,6 +51,15 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
+
+    // update meta theme-color
+    const metaThemeColor = document.querySelector("meta[name='theme-color']")
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute(
+        'content',
+        theme === 'light' ? '#ffffff' : '#131313'
+      )
+    }
   }, [theme])
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
@@ -64,40 +77,15 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <div className="setting">
-          <button onClick={() => setIsSettingOpen(true)}>
-            <span class="material-symbols-outlined">settings</span>
-          </button>
-        </div>
-        <div className="logo">
-          <h1 onClick={refreshPage}>
-            TODO
-            <span class="material-symbols-outlined check-icon">check</span>
-          </h1>
-        </div>
-        <div className="theme-toggle">
-          <button onClick={toggleTheme}>
-            <span class="material-symbols-outlined">contrast</span>
-          </button>
-        </div>
-      </header>
+      <Header
+        refreshPage={refreshPage}
+        setIsSettingOpen={setIsSettingOpen}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <AddTodo addTodo={addTodo} />
       <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
-      <div className="footer-container">
-        <span>@John Lin</span>
-        <span className="footer">
-          TODO v1.5.2{` `}
-          <a
-            href="https://github.com/johnlin10/to-do-list"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Github
-          </a>
-          {` `}
-        </span>
-      </div>
+      <Footer version={version} />
       <Setting
         isOpen={isSettingOpen}
         onClose={() => setIsSettingOpen(false)}

@@ -4,7 +4,7 @@ import './AddTodo.scss'
 function AddTodo({ addTodo }) {
   const [text, setText] = useState('')
   const [dueDate, setDueDate] = useState(new Date().toISOString().split('T')[0])
-  const [importance, setImportance] = useState('normal') // other:
+  const [importance, setImportance] = useState('normal') // normal/medium/high
 
   const handleSubmit = (e) => {
     e.preventDefault()
