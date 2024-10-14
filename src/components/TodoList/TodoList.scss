@@ -73,6 +73,10 @@
       }
     }
 
+    &:active {
+      background-color: var(--gray-color-13);
+    }
+
     &:last-child {
       border-bottom: none;
     }
@@ -88,62 +92,70 @@
       > div.todo-item-container {
         display: flex;
         align-items: center;
-        cursor: pointer;
         height: 100%;
         width: 100%;
 
-        > input[type='checkbox'] {
-          font-family: 'Material Symbols Outlined';
-          appearance: none;
-          -webkit-appearance: none;
-          width: 20px;
-          height: 20px;
-          border: 3px solid var(--gray-color-12);
-          border-radius: 50%;
-          outline: none;
+        > div.todo-item-check {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          height: 100%;
+          width: fit-content;
           cursor: pointer;
-          position: relative;
-          pointer-events: none;
 
-          &.importance-medium {
-            border-color: var(--warning-color-orange);
-          }
-          &.importance-high {
-            border-color: var(--warning-color);
-          }
+          > input[type='checkbox'] {
+            font-family: 'Material Symbols Outlined';
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--gray-color-12);
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            pointer-events: none;
 
-          &:checked {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
+            &.importance-medium {
+              border-color: var(--warning-color-orange);
+            }
+            &.importance-high {
+              border-color: var(--warning-color);
+            }
 
-            &::after {
-              content: '\e5ca';
-              font-size: 16px;
-              font-weight: 700;
-              color: white;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
+            &:checked {
+              background-color: var(--primary-color);
+              border-color: var(--primary-color);
+
+              &::after {
+                content: '\e5ca';
+                font-size: 16px;
+                font-weight: 700;
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
             }
           }
-        }
 
-        > div.todo-container {
-          margin-left: 6px;
-
-          > span {
-            font-size: 1rem;
-            color: var(--text-color);
-          }
-
-          > div.todo-details-view {
-            margin-top: -3px;
-            height: fit-content;
+          > div.todo-container {
+            margin-left: 6px;
 
             > span {
-              font-size: 0.8rem;
-              color: var(--gray-color-10);
+              font-size: 1rem;
+              color: var(--text-color);
+            }
+
+            > div.todo-details-view {
+              margin-top: -3px;
+              height: fit-content;
+
+              > span {
+                font-size: 0.8rem;
+                color: var(--gray-color-10);
+              }
             }
           }
         }

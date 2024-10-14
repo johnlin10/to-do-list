@@ -1,7 +1,7 @@
 import TodoItem from './TodoItem'
 import './TodoList.scss'
 
-function TodoList({ todos, deleteTodo, toggleTodo }) {
+function TodoList({ todos, deleteTodo, toggleTodo, onEdit }) {
   return (
     <ul className="todo-list">
       {todos.length > 0 && (
@@ -21,6 +21,7 @@ function TodoList({ todos, deleteTodo, toggleTodo }) {
             todo={todo}
             deleteTodo={deleteTodo}
             toggleTodo={toggleTodo}
+            onEdit={onEdit}
           />
         ))}
     </ul>

@@ -1,7 +1,7 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.3
+ * @version 1.5.5
  * @description A simple to-do list PWA built with React and SCSS.
  */
 
@@ -12,30 +12,30 @@ import TodoList from './components/TodoList/TodoList'
 import AddTodo from './components/AddTodo/AddTodo'
 import Setting from './components/Setting/Setting'
 import Footer from './components/Footer/Footer'
+import EditTodoModal from './components/EditTodoModal/EditTodoModal'
 
-const version = '1.5.3'
+const version = '1.5.5'
 
 function App() {
   // Setting
   const [isSettingOpen, setIsSettingOpen] = useState(false)
 
-  // Todos
+  //* Todos
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem('todos')
     return savedTodos ? JSON.parse(savedTodos) : []
   })
-
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [editedTodo, setEditedTodo] = useState({})
   const addTodo = (text, dueDate, importance) => {
     setTodos([
       ...todos,
       { id: Date.now(), text, dueDate, importance, completed: false },
     ])
   }
-
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
-
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -43,8 +43,23 @@ function App() {
       )
     )
   }
+  const handleEditTodo = (todo) => {
+    setEditedTodo(todo)
+    setIsEditModalOpen(true)
+  }
+  const handleSaveEditTodo = (updatedTodo) => {
+    setTodos(
+      todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
+    )
+    setIsEditModalOpen(false)
+  }
 
-  // Theme
+  // Save todos to local storage
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+
+  //* Theme
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light'
   })
@@ -65,15 +80,10 @@ function App() {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
-  // Refresh page
+  //* Refresh page
   const refreshPage = () => {
     window.location.reload(true)
   }
-
-  // Save todos to local storage
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }, [todos])
 
   return (
     <div className="App">
@@ -84,13 +94,24 @@ function App() {
         toggleTheme={toggleTheme}
       />
       <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
+      <TodoList
+        todos={todos}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+        onEdit={handleEditTodo}
+      />
       <Footer version={version} />
       <Setting
         isOpen={isSettingOpen}
         onClose={() => setIsSettingOpen(false)}
         todos={todos}
         setTodos={setTodos}
+      />
+      <EditTodoModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        todo={editedTodo}
+        onSave={handleSaveEditTodo}
       />
     </div>
   )

@@ -1,34 +1,39 @@
-function TodoItem({ todo, deleteTodo, toggleTodo }) {
+function TodoItem({ todo, deleteTodo, toggleTodo, onEdit }) {
   return (
     <>
       <li>
         <div className="todo-item-container-wrapper">
-          <div
-            className="todo-item-container"
-            onClick={() => toggleTodo(todo.id)}
-          >
-            <input
-              type="checkbox"
-              className={`${
-                todo.importance === 'medium'
-                  ? 'importance-medium'
-                  : todo.importance === 'high'
-                  ? 'importance-high'
-                  : ''
-              }`}
-              checked={todo.completed}
-              readOnly
-            />
-            <div className="todo-container">
-              <span
-                style={{
-                  textDecoration: todo.completed ? 'line-through' : 'none',
-                }}
-              >
-                {todo.text}
-              </span>
-              <div className="todo-details-view">
-                <span className="due-date">{todo.dueDate}</span>
+          <div className="todo-item-container" onClick={() => onEdit(todo)}>
+            <div
+              className="todo-item-check"
+              onClick={(e) => {
+                e.stopPropagation()
+                toggleTodo(todo.id)
+              }}
+            >
+              <input
+                type="checkbox"
+                className={`${
+                  todo.importance === 'medium'
+                    ? 'importance-medium'
+                    : todo.importance === 'high'
+                    ? 'importance-high'
+                    : ''
+                }`}
+                checked={todo.completed}
+                readOnly
+              />
+              <div className="todo-container">
+                <span
+                  style={{
+                    textDecoration: todo.completed ? 'line-through' : 'none',
+                  }}
+                >
+                  {todo.text}
+                </span>
+                <div className="todo-details-view">
+                  <span className="due-date">{todo.dueDate}</span>
+                </div>
               </div>
             </div>
           </div>
