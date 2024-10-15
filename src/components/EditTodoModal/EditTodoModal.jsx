@@ -4,11 +4,19 @@ import './EditTodoModal.scss'
 function EditTodoModal({ isOpen, onClose, todo, onSave }) {
   const [editedTodo, setEditedTodo] = useState(todo)
 
+  const isTodoChanged = () => {
+    return (
+      editedTodo.text !== todo.text ||
+      editedTodo.importance !== todo.importance ||
+      editedTodo.dueDate !== todo.dueDate
+    )
+  }
+
   useEffect(() => {
     setEditedTodo(todo)
   }, [todo])
 
-  if (!isOpen) return null
+  // if (!isOpen) return null
 
   const handleSave = () => {
     onSave(editedTodo)
@@ -27,7 +35,7 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
           }
         />
         <div className="edit-todo-importance">
-          <div
+          {/* <div
             className={`edit-todo-importance-circle ${
               editedTodo.importance === 'medium'
                 ? 'importance-medium'
@@ -35,7 +43,7 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
                 ? 'importance-high'
                 : ''
             }`}
-          ></div>
+          ></div> */}
           <select
             className={`${
               editedTodo.importance === 'medium'
@@ -62,7 +70,9 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
           />
         </div>
         <div className="edit-todo-actions">
-          <button onClick={handleSave}>Save</button>
+          <button onClick={handleSave} disabled={!isTodoChanged()}>
+            Save
+          </button>
           <button onClick={onClose}>Cancel</button>
         </div>
       </div>

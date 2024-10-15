@@ -1,7 +1,7 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.5
+ * @version 1.5.7
  * @description A simple to-do list PWA built with React and SCSS.
  */
 
@@ -14,7 +14,7 @@ import Setting from './components/Setting/Setting'
 import Footer from './components/Footer/Footer'
 import EditTodoModal from './components/EditTodoModal/EditTodoModal'
 
-const version = '1.5.5'
+const version = '1.5.7'
 
 function App() {
   // Setting
@@ -107,12 +107,14 @@ function App() {
         todos={todos}
         setTodos={setTodos}
       />
-      <EditTodoModal
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
-        todo={editedTodo}
-        onSave={handleSaveEditTodo}
-      />
+      {isEditModalOpen && (
+        <EditTodoModal
+          isOpen={isEditModalOpen}
+          onClose={() => setIsEditModalOpen(false)}
+          todo={editedTodo}
+          onSave={handleSaveEditTodo}
+        />
+      )}
     </div>
   )
 }
