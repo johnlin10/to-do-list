@@ -8,6 +8,7 @@ function Footer({ version }) {
         TODO v{version}
         {` `}
         <a
+          className="text-link"
           href="https://github.com/johnlin10/to-do-list"
           target="_blank"
           rel="noreferrer"

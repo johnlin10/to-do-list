@@ -1,195 +1,174 @@
-.setting-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.setting-content {
+  position: relative;
+  background-color: var(--background-color);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0000009f;
-  z-index: 1000;
+  flex-direction: column;
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
 
-  > .setting-content {
-    background-color: var(--background-color);
-    padding: 12px;
+  > button.setting-close {
     display: flex;
-    flex-direction: column;
-    width: calc(100% - 24px);
-    min-width: 300px;
-    max-width: 400px;
-    position: relative;
-    border: 3px solid var(--secondary-color);
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 36px;
+    width: 36px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 16px;
 
-    > button.setting-close {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      height: 36px;
-      width: 36px;
-      border: none;
-      background-color: var(--secondary-color);
-      color: var(--text-color);
-      cursor: pointer;
-      font-size: 16px;
+    &:hover {
+      background-color: var(--warning-color);
+
+      > span {
+        color: var(--gray-color-15);
+      }
+    }
+
+    &:last-child {
+      margin-top: 10px;
+      background-color: var(--warning-color);
+      color: white;
 
       &:hover {
         background-color: var(--warning-color);
-
-        > span {
-          color: var(--gray-color-15);
-        }
       }
+    }
 
-      &:last-child {
-        margin-top: 10px;
-        background-color: var(--warning-color);
-        color: white;
+    > span {
+      font-size: 24px;
+      color: var(--text-color);
+    }
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
+  > .setting-header {
+    margin-top: 3px;
+    margin-bottom: 9px;
+    > h2 {
+      margin: 0;
+      color: var(--text-color);
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  > .setting-body {
+    display: flex;
+    flex-direction: column;
+
+    > p.setting-tip {
+      margin: 0;
+      color: var(--gray-color-12);
+      font-size: 12px;
+      padding: 3px 9px;
+    }
+
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 6px;
+      padding: 9px;
+      border: 2px solid var(--secondary-color);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 12px;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      -ms-border-radius: 12px;
+      -o-border-radius: 12px;
+
+      &.setting-clear {
+        border: 2px solid var(--warning-color);
+        color: var(--warning-color);
 
         &:hover {
           background-color: var(--warning-color);
+          color: var(--text-color);
         }
+      }
+
+      &.setting-export:hover {
+        background-color: var(--secondary-color);
       }
 
       > span {
-        font-size: 24px;
-        color: var(--text-color);
-      }
-
-      border-radius: 50%;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-      -o-border-radius: 50%;
-    }
-
-    > .setting-header {
-      margin-top: 3px;
-      margin-bottom: 9px;
-      > h2 {
-        margin: 0;
-        color: var(--text-color);
-        text-align: center;
-        font-weight: 700;
+        margin-right: 3px;
+        font-size: 18px;
       }
     }
 
-    > .setting-body {
-      display: flex;
-      flex-direction: column;
+    > input[type='file'] {
+      margin-top: 6px;
+      padding: 10px;
+      border: 2px solid var(--secondary-color);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 14px;
 
-      > p.setting-tip {
-        margin: 0;
-        color: var(--gray-color-12);
-        font-size: 12px;
+      &::-webkit-file-upload-button {
+        //visibility: hidden;
+        margin-right: 12px;
+        width: auto;
+        border: 2px solid var(--gray-color-12);
+        background-color: var(--secondary-color);
+        color: var(--text-color);
         padding: 3px 9px;
-      }
-
-      > button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 6px;
-        padding: 9px;
-        border: 2px solid var(--secondary-color);
-        background-color: var(--background-color);
-        color: var(--text-color);
+        outline: none;
+        white-space: nowrap;
         cursor: pointer;
+        font-weight: 700;
         font-size: 14px;
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        -ms-border-radius: 12px;
-        -o-border-radius: 12px;
-
-        &.setting-clear {
-          border: 2px solid var(--warning-color);
-          color: var(--warning-color);
-
-          &:hover {
-            background-color: var(--warning-color);
-            color: var(--text-color);
-          }
-        }
-
-        &.setting-export:hover {
-          background-color: var(--secondary-color);
-        }
-
-        > span {
-          margin-right: 3px;
-          font-size: 18px;
-        }
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
       }
 
-      > input[type='file'] {
-        margin-top: 6px;
-        padding: 10px;
-        border: 2px solid var(--secondary-color);
-        background-color: var(--background-color);
-        color: var(--text-color);
-        cursor: pointer;
-        font-size: 14px;
+      // &::before {
+      //   content: 'choose file';
+      //   background-color: var(--secondary-color);
+      //   color: var(--text-color);
+      //   padding: 3px 9px;
+      //   outline: none;
+      //   white-space: nowrap;
+      //   cursor: pointer;
+      //   font-weight: 700;
+      //   font-size: 14px;
+      //   border-radius: 3px;
+      //   -webkit-border-radius: 3px;
+      //   -moz-border-radius: 3px;
+      //   -ms-border-radius: 3px;
+      //   -o-border-radius: 3px;
+      // }
 
-        &::-webkit-file-upload-button {
-          //visibility: hidden;
-          margin-right: 12px;
-          width: auto;
-          border: 2px solid var(--gray-color-12);
-          background-color: var(--secondary-color);
-          color: var(--text-color);
-          padding: 3px 9px;
-          outline: none;
-          white-space: nowrap;
-          cursor: pointer;
-          font-weight: 700;
-          font-size: 14px;
-          border-radius: 5px;
-          -webkit-border-radius: 5px;
-          -moz-border-radius: 5px;
-          -ms-border-radius: 5px;
-          -o-border-radius: 5px;
-        }
-
-        // &::before {
-        //   content: 'choose file';
-        //   background-color: var(--secondary-color);
-        //   color: var(--text-color);
-        //   padding: 3px 9px;
-        //   outline: none;
-        //   white-space: nowrap;
-        //   cursor: pointer;
-        //   font-weight: 700;
-        //   font-size: 14px;
-        //   border-radius: 3px;
-        //   -webkit-border-radius: 3px;
-        //   -moz-border-radius: 3px;
-        //   -ms-border-radius: 3px;
-        //   -o-border-radius: 3px;
-        // }
-
-        &:hover {
-          background-color: var(--secondary-color);
-        }
-
-        &:hover::before {
-          background-color: var(--gray-color-12);
-        }
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        -ms-border-radius: 12px;
-        -o-border-radius: 12px;
+      &:hover {
+        background-color: var(--secondary-color);
       }
+
+      &:hover::before {
+        background-color: var(--gray-color-12);
+      }
+      border-radius: 12px;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      -ms-border-radius: 12px;
+      -o-border-radius: 12px;
     }
-
-    border-radius: 28px;
-    -webkit-border-radius: 28px;
-    -moz-border-radius: 28px;
-    -ms-border-radius: 28px;
-    -o-border-radius: 28px;
   }
 }

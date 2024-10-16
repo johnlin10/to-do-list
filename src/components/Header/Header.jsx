@@ -1,12 +1,13 @@
 import './Header.scss'
+import { Link } from 'react-router-dom'
 
 function Header({ refreshPage, setIsSettingOpen, theme, toggleTheme }) {
   return (
     <header>
       <div className="setting">
-        <button onClick={() => setIsSettingOpen(true)} name="Setting">
+        <Link to="/setting" name="Setting">
           <span class="material-symbols-outlined">settings</span>
-        </button>
+        </Link>
       </div>
       <div className="logo">
         <h1 onClick={refreshPage} name="TODO">

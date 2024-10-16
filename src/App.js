@@ -1,25 +1,24 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.7
+ * @version 1.5.8
  * @description A simple to-do list PWA built with React and SCSS.
  */
 
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header/Header'
 import TodoList from './components/TodoList/TodoList'
 import AddTodo from './components/AddTodo/AddTodo'
 import Setting from './components/Setting/Setting'
 import Footer from './components/Footer/Footer'
+import SecondPage from './components/SecondPage/SecondPage'
 import EditTodoModal from './components/EditTodoModal/EditTodoModal'
 
-const version = '1.5.7'
+const version = '1.5.8'
 
-function App() {
-  // Setting
-  const [isSettingOpen, setIsSettingOpen] = useState(false)
-
+export default function App() {
   //* Todos
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem('todos')
@@ -87,26 +86,37 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        refreshPage={refreshPage}
-        setIsSettingOpen={setIsSettingOpen}
-        theme={theme}
-        toggleTheme={toggleTheme}
-      />
-      <AddTodo addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        deleteTodo={deleteTodo}
-        toggleTodo={toggleTodo}
-        onEdit={handleEditTodo}
-      />
-      <Footer version={version} />
-      <Setting
-        isOpen={isSettingOpen}
-        onClose={() => setIsSettingOpen(false)}
-        todos={todos}
-        setTodos={setTodos}
-      />
+      <Routes>
+        {/* Home */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header
+                refreshPage={refreshPage}
+                theme={theme}
+                toggleTheme={toggleTheme}
+              />
+              <AddTodo addTodo={addTodo} />
+              <TodoList
+                todos={todos}
+                deleteTodo={deleteTodo}
+                toggleTodo={toggleTodo}
+                onEdit={handleEditTodo}
+              />
+              <Footer version={version} />
+            </>
+          }
+        />
+        <Route
+          path="/setting"
+          element={
+            <SecondPage title="Setting">
+              <Setting todos={todos} setTodos={setTodos} />
+            </SecondPage>
+          }
+        />
+      </Routes>
       {isEditModalOpen && (
         <EditTodoModal
           isOpen={isEditModalOpen}
@@ -118,5 +128,3 @@ function App() {
     </div>
   )
 }
-
-export default App

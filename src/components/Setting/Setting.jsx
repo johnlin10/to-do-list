@@ -1,8 +1,6 @@
 import './Setting.scss'
 
-function Setting({ isOpen, onClose, todos, setTodos }) {
-  if (!isOpen) return null
-
+function Setting({ todos, setTodos }) {
   const exportTodoList = () => {
     const dataStr = JSON.stringify(todos)
     const dataUri =
@@ -45,36 +43,26 @@ function Setting({ isOpen, onClose, todos, setTodos }) {
   }
 
   return (
-    <div className="setting-overlay">
-      <div className="setting-content">
-        <button className="setting-close" onClick={onClose}>
-          <span className="material-symbols-outlined">close</span>
+    <div className="setting-content">
+      <div className="setting-body">
+        <button className="setting-export" onClick={exportTodoList}>
+          <span class="material-symbols-outlined">download</span>
+          Export list
         </button>
+        {/* 匯出並下載TODO JSON檔案 */}
+        <p className="setting-tip">Export and Download TODO JSON File</p>
 
-        <div className="setting-header">
-          <h2>Setting</h2>
-        </div>
-
-        <div className="setting-body">
-          <button className="setting-export" onClick={exportTodoList}>
-            <span class="material-symbols-outlined">download</span>
-            Export list
-          </button>
-          {/* 匯出並下載TODO JSON檔案 */}
-          <p className="setting-tip">Export and Download TODO JSON File</p>
-
-          <input
-            type="file"
-            accept=".json"
-            className="setting-import"
-            onChange={importTodoList}
-            placeholder="Import TODO JSON file"
-          />
-          <p className="setting-tip">Import and Load TODO JSON file</p>
-          <button className="setting-clear" onClick={clearAllData}>
-            Clear todo list
-          </button>
-        </div>
+        <input
+          type="file"
+          accept=".json"
+          className="setting-import"
+          onChange={importTodoList}
+          placeholder="Import TODO JSON file"
+        />
+        <p className="setting-tip">Import and Load TODO JSON file</p>
+        <button className="setting-clear" onClick={clearAllData}>
+          Clear todo list
+        </button>
       </div>
     </div>
   )

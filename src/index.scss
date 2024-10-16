@@ -44,18 +44,21 @@ code {
 
 a {
   text-decoration: none;
-  color: #369fc5;
 
-  &:visited {
-    color: #7b36c5;
+  &.text-link {
+    color: #369fc5;
+
+    &:visited {
+      color: #7b36c5;
+
+      &:hover {
+        border-bottom: 1px solid #7b36c5;
+      }
+    }
 
     &:hover {
-      border-bottom: 1px solid #7b36c5;
+      border-bottom: 1px solid #369fc5;
     }
-  }
-
-  &:hover {
-    border-bottom: 1px solid #369fc5;
   }
 
   transition: 0s;

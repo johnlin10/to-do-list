@@ -70,10 +70,10 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
           />
         </div>
         <div className="edit-todo-actions">
+          <button onClick={onClose}>Cancel</button>
           <button onClick={handleSave} disabled={!isTodoChanged()}>
             Save
           </button>
-          <button onClick={onClose}>Cancel</button>
         </div>
       </div>
     </div>
