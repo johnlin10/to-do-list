@@ -1,7 +1,7 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.8
+ * @version 1.5.9
  * @description A simple to-do list PWA built with React and SCSS.
  */
 
@@ -16,7 +16,7 @@ import Footer from './components/Footer/Footer'
 import SecondPage from './components/SecondPage/SecondPage'
 import EditTodoModal from './components/EditTodoModal/EditTodoModal'
 
-const version = '1.5.8'
+const version = '1.5.9'
 
 export default function App() {
   //* Todos

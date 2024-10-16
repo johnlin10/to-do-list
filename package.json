@@ -1,6 +1,6 @@
 {
   "name": "to-do-list",
-  "version": "0.1.0",
+  "version": "1.5.9",
   "private": true,
   "homepage": "https://johnlin10.github.io/to-do-list/",
   "dependencies": {
