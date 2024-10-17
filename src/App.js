@@ -1,7 +1,7 @@
 /**
  * Todo App
  * @author John Lin
- * @version 1.5.9
+ * @version 1.5.11
  * @description A simple to-do list PWA built with React and SCSS.
  */
 
@@ -16,7 +16,7 @@ import Footer from './components/Footer/Footer'
 import SecondPage from './components/SecondPage/SecondPage'
 import EditTodoModal from './components/EditTodoModal/EditTodoModal'
 
-const version = '1.5.9'
+const version = '1.5.11'
 
 export default function App() {
   //* Todos
@@ -50,7 +50,6 @@ export default function App() {
     setTodos(
       todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
     )
-    setIsEditModalOpen(false)
   }
 
   // Save todos to local storage

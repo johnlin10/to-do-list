@@ -17,7 +17,7 @@ function AddTodo({ addTodo }) {
   }
 
   return (
-    <div className="add-todo-container">
+    <div className={`add-todo-container ${text.trim() ? 'active' : ''}`}>
       <form onSubmit={handleSubmit} className="add-todo">
         <input
           type="text"
@@ -39,32 +39,30 @@ function AddTodo({ addTodo }) {
           <span class="material-symbols-outlined">add</span>
         </button>
       </form>
-      {text.trim() && (
-        <div className="todo-details">
-          <input
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-          <select
-            name="importance"
-            id="importance"
-            className={`${
-              importance === 'medium'
-                ? 'medium'
-                : importance === 'high'
-                ? 'high'
-                : ''
-            }`}
-            value={importance}
-            onChange={(e) => setImportance(e.target.value)}
-          >
-            <option value="normal">Normal</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-      )}
+      <div className={`todo-details ${text.trim() ? 'active' : ''}`}>
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
+        <select
+          name="importance"
+          id="importance"
+          className={`${
+            importance === 'medium'
+              ? 'medium'
+              : importance === 'high'
+              ? 'high'
+              : ''
+          }`}
+          value={importance}
+          onChange={(e) => setImportance(e.target.value)}
+        >
+          <option value="normal">Normal</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
       <p className={`add-todo-hint ${text.trim() ? '' : 'hidden'}`}>
         Enter to add
       </p>

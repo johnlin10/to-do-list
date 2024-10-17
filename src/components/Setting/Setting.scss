@@ -74,22 +74,20 @@
       padding: 3px 9px;
     }
 
+    $block-height: 48px;
+
     > button {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 6px;
       padding: 9px;
+      height: $block-height;
       border: 2px solid var(--secondary-color);
       background-color: var(--background-color);
       color: var(--text-color);
       cursor: pointer;
-      font-size: 14px;
-      border-radius: 12px;
-      -webkit-border-radius: 12px;
-      -moz-border-radius: 12px;
-      -ms-border-radius: 12px;
-      -o-border-radius: 12px;
+      font-size: 1rem;
 
       &.setting-clear {
         border: 2px solid var(--warning-color);
@@ -107,18 +105,24 @@
 
       > span {
         margin-right: 3px;
-        font-size: 18px;
+        font-size: 1rem;
       }
+      border-radius: 24px;
+      -webkit-border-radius: 24px;
+      -moz-border-radius: 24px;
+      -ms-border-radius: 24px;
+      -o-border-radius: 24px;
     }
 
     > input[type='file'] {
       margin-top: 6px;
-      padding: 10px;
+      padding: 7px;
+      height: $block-height;
       border: 2px solid var(--secondary-color);
       background-color: var(--background-color);
       color: var(--text-color);
       cursor: pointer;
-      font-size: 14px;
+      font-size: 1rem;
 
       &::-webkit-file-upload-button {
         //visibility: hidden;
@@ -133,11 +137,11 @@
         cursor: pointer;
         font-weight: 700;
         font-size: 14px;
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        -o-border-radius: 5px;
+        border-radius: 14px;
+        -webkit-border-radius: 14px;
+        -moz-border-radius: 14px;
+        -ms-border-radius: 14px;
+        -o-border-radius: 14px;
       }
 
       // &::before {
@@ -164,11 +168,12 @@
       &:hover::before {
         background-color: var(--gray-color-12);
       }
-      border-radius: 12px;
-      -webkit-border-radius: 12px;
-      -moz-border-radius: 12px;
-      -ms-border-radius: 12px;
-      -o-border-radius: 12px;
+
+      border-radius: 24px;
+      -webkit-border-radius: 24px;
+      -moz-border-radius: 24px;
+      -ms-border-radius: 24px;
+      -o-border-radius: 24px;
     }
   }
 }

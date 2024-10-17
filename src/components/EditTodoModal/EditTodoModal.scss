@@ -6,20 +6,34 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   background-color: #0000009f;
   z-index: 1000;
+  opacity: 0;
+
+  &.pop-animation {
+    opacity: 1;
+
+    > .edit-todo-content {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+    }
+  }
 
   > .edit-todo-content {
     background-color: var(--background-color);
     padding: 12px;
     display: flex;
     flex-direction: column;
-    width: calc(100% - 40px);
+    width: calc(100% - 12px);
     min-width: 300px;
-    max-width: 400px;
+    max-width: 540px;
     position: relative;
-    border: 3px solid var(--secondary-color);
+    border: 5px solid var(--secondary-color);
+    border-bottom: none;
 
     > h2 {
       text-align: center;
@@ -28,45 +42,47 @@
       font-weight: 700;
     }
 
+    // Edit Todo Input
     > input[type='text'] {
-      min-height: 40px;
-      margin-bottom: 15px;
-      padding: 10px;
+      height: 48px;
+      margin-bottom: 9px;
+      padding: 9px 18px;
       border: 2px solid var(--secondary-color);
       background-color: var(--background-color);
       color: var(--text-color);
-      font-size: 16px;
+      font-size: 1.2rem;
       outline: none;
 
       &:focus {
         border-color: var(--input-focus-color);
       }
-
-      border-radius: 12px;
-      -webkit-border-radius: 12px;
-      -moz-border-radius: 12px;
-      -ms-border-radius: 12px;
-      -o-border-radius: 12px;
+      border-radius: 24px;
+      -webkit-border-radius: 24px;
+      -moz-border-radius: 24px;
+      -ms-border-radius: 24px;
+      -o-border-radius: 24px;
     }
 
-    > .edit-todo-importance {
+    // Edit Todo Importance and Due Date
+    > .edit-todo-importance-dueDate {
       display: flex;
       justify-content: space-between;
       width: 100%;
       height: 40px;
       margin-bottom: 15px;
 
+      // Importance select
       > select {
-        padding: 3px 10px;
+        padding: 9px 18px;
         width: fit-content;
-        height: 40px;
-        font-size: 16px;
+        height: 48px;
+        font-size: 1.1rem;
         border: 2px solid var(--secondary-color);
         background-color: var(--background-color);
         color: var(--text-color);
         outline: none;
         appearance: none;
-        padding-right: 30px;
+        padding-right: 24px;
 
         &.importance-medium {
           border-color: var(--warning-color-orange);
@@ -74,34 +90,33 @@
         &.importance-high {
           border-color: var(--warning-color);
         }
-
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        -ms-border-radius: 12px;
-        -o-border-radius: 12px;
+        border-radius: 24px;
+        -webkit-border-radius: 24px;
+        -moz-border-radius: 24px;
+        -ms-border-radius: 24px;
+        -o-border-radius: 24px;
       }
 
+      // Due Date input
       > input[type='date'] {
-        margin-left: 10px;
+        margin-left: 9px;
         width: 100%;
-        height: 40px;
-        padding: 3px 10px;
+        height: 48px;
+        padding: 9px 18px;
         border: 2px solid var(--secondary-color);
         background-color: var(--background-color);
         color: var(--text-color);
-        font-size: 16px;
+        font-size: 1.1rem;
         outline: none;
 
         &::-webkit-calendar-picker-indicator {
           filter: invert(1);
         }
-
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        -ms-border-radius: 12px;
-        -o-border-radius: 12px;
+        border-radius: 24px;
+        -webkit-border-radius: 24px;
+        -moz-border-radius: 24px;
+        -ms-border-radius: 24px;
+        -o-border-radius: 24px;
       }
     }
 
@@ -109,23 +124,37 @@
       display: flex;
       justify-content: flex-end;
       gap: 10px;
+      height: 48px;
       margin-top: 10px;
 
       > button {
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
+        padding: 9px 18px;
+        height: 48px;
+        font-size: 1.1rem;
         font-weight: 500;
         border: 3px solid var(--secondary-color);
+        cursor: pointer;
+        color: var(--primary-color-text);
 
+        // Cancel button
+        &:first-child {
+          background-color: var(--secondary-color);
+          color: var(--text-color);
+
+          &:hover {
+            border: 3px solid var(--gray-color-12);
+            background-color: var(--gray-color-12);
+          }
+        }
+
+        // Save button
         &:last-child {
           background-color: var(--primary-color);
           border: 3px solid var(--primary-color);
-          color: white;
+          color: var(--primary-color-text);
 
           &:hover {
-            background-color: darken(#42b2db, 20%);
+            background-color: darken(#42b2db, 0%);
           }
 
           &:disabled {
@@ -136,27 +165,22 @@
           }
         }
 
-        &:first-child {
-          background-color: var(--secondary-color);
-          color: var(--text-color);
-
-          &:hover {
-            background-color: var(--gray-color-12);
-          }
-        }
-
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        -ms-border-radius: 12px;
-        -o-border-radius: 12px;
+        border-radius: 24px;
+        -webkit-border-radius: 24px;
+        -moz-border-radius: 24px;
+        -ms-border-radius: 24px;
+        -o-border-radius: 24px;
       }
     }
-
-    border-radius: 28px;
-    -webkit-border-radius: 28px;
-    -moz-border-radius: 28px;
-    -ms-border-radius: 28px;
-    -o-border-radius: 28px;
+    border-radius: 36px 36px 0 0;
+    -webkit-border-radius: 36px 36px 0 0;
+    -moz-border-radius: 36px 36px 0 0;
+    -ms-border-radius: 36px 36px 0 0;
+    -o-border-radius: 36px 36px 0 0;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
   }
 }

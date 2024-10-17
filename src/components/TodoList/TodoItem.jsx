@@ -2,8 +2,11 @@ function TodoItem({ todo, deleteTodo, toggleTodo, onEdit }) {
   return (
     <>
       <li>
-        <div className="todo-item-container-wrapper">
-          <div className="todo-item-container" onClick={() => onEdit(todo)}>
+        <div
+          className="todo-item-container-wrapper"
+          onClick={() => onEdit(todo)}
+        >
+          <div className="todo-item-container">
             <div
               className="todo-item-check"
               onClick={(e) => {

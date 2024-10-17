@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react'
 import './EditTodoModal.scss'
 
 function EditTodoModal({ isOpen, onClose, todo, onSave }) {
+  const [popAnimation, setPopAnimation] = useState(false)
   const [editedTodo, setEditedTodo] = useState(todo)
+
+  useEffect(() => {
+    setPopAnimation(true)
+  }, [isOpen])
 
   const isTodoChanged = () => {
     return (
@@ -16,16 +21,26 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
     setEditedTodo(todo)
   }, [todo])
 
+  const handleClose = () => {
+    setPopAnimation(false)
+    setTimeout(() => {
+      onClose()
+    }, 300)
+  }
+
   // if (!isOpen) return null
 
   const handleSave = () => {
     onSave(editedTodo)
-    onClose()
+    handleClose()
   }
 
   return (
-    <div className="edit-todo-overlay">
-      <div className="edit-todo-content">
+    <div
+      className={`edit-todo-overlay ${popAnimation ? 'pop-animation' : ''}`}
+      onClick={handleClose}
+    >
+      <div className="edit-todo-content" onClick={(e) => e.stopPropagation()}>
         <h2>Edit Todo</h2>
         <input
           type="text"
@@ -33,17 +48,9 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
           onChange={(e) =>
             setEditedTodo({ ...editedTodo, text: e.target.value })
           }
+          autoFocus
         />
-        <div className="edit-todo-importance">
-          {/* <div
-            className={`edit-todo-importance-circle ${
-              editedTodo.importance === 'medium'
-                ? 'importance-medium'
-                : editedTodo.importance === 'high'
-                ? 'importance-high'
-                : ''
-            }`}
-          ></div> */}
+        <div className="edit-todo-importance-dueDate">
           <select
             className={`${
               editedTodo.importance === 'medium'
@@ -70,7 +77,7 @@ function EditTodoModal({ isOpen, onClose, todo, onSave }) {
           />
         </div>
         <div className="edit-todo-actions">
-          <button onClick={onClose}>Cancel</button>
+          <button onClick={handleClose}>Cancel</button>
           <button onClick={handleSave} disabled={!isTodoChanged()}>
             Save
           </button>
